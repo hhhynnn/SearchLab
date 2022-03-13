@@ -9,8 +9,8 @@ virtualenv venv
 3. 下载相关的文件包
 
 ```shell
-# pyside2
-pip install pyside2 -i https://pypi.douban.com/simple/
+# pyside6
+pip install PySide6 -i https://pypi.douban.com/simple/
 
 # sklearn
 pip install -U scikit-learn
@@ -20,3 +20,7 @@ pip install -U scikit-learn
 
 - [Python Qt 教程 | 白月黑羽](https://www.byhy.net/tut/py/gui/qt_01/)
 - [pythongui tutorials](https://www.pythonguis.com/tutorials/)
+
+
+## 笔记
+1. `.ui` 文件的使用方法
