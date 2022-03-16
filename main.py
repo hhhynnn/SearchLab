@@ -22,8 +22,8 @@ import platform
 # ///////////////////////////////////////////////////////////////
 from modules import *
 from widgets import *
-from modules.ui_functions import *
-from modules.app_settings import *
+
+# from modules.app_settings import *
 
 os.environ["QT_FONT_DPI"] = "96"  # FIX Problem for High DPI and Scale above 100%
 
@@ -67,6 +67,11 @@ class MainWindow(QMainWindow):
         # ///////////////////////////////////////////////////////////////
         # 根据 'ENABLE_CUSTOM_TITLE_BAR' 值对边框进行处理
         UIFunctions.uiDefinitions(self)
+
+        ######################################################################
+        # 定义操作函数
+        ######################################################################
+        SearchFunction.SearchDefinitions(self)
 
         # QTableWidget PARAMETERS
         # ///////////////////////////////////////////////////////////////

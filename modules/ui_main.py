@@ -1219,39 +1219,35 @@ class Ui_MainWindow(object):
         self.text_content.setObjectName(u"text_content")
         palette3 = QPalette()
         palette3.setBrush(QPalette.Active, QPalette.WindowText, brush)
-        palette3.setBrush(QPalette.Active, QPalette.Button, brush1)
+        palette3.setBrush(QPalette.Active, QPalette.Button, brush)
         palette3.setBrush(QPalette.Active, QPalette.Text, brush)
         palette3.setBrush(QPalette.Active, QPalette.ButtonText, brush)
-        brush5 = QBrush(QColor(0, 0, 0, 255))
-        brush5.setStyle(Qt.NoBrush)
-        palette3.setBrush(QPalette.Active, QPalette.Base, brush5)
-        palette3.setBrush(QPalette.Active, QPalette.Window, brush1)
+        palette3.setBrush(QPalette.Active, QPalette.Base, brush)
+        palette3.setBrush(QPalette.Active, QPalette.Window, brush)
 #if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
         palette3.setBrush(QPalette.Active, QPalette.PlaceholderText, brush)
 #endif
         palette3.setBrush(QPalette.Inactive, QPalette.WindowText, brush)
-        palette3.setBrush(QPalette.Inactive, QPalette.Button, brush1)
+        palette3.setBrush(QPalette.Inactive, QPalette.Button, brush)
         palette3.setBrush(QPalette.Inactive, QPalette.Text, brush)
         palette3.setBrush(QPalette.Inactive, QPalette.ButtonText, brush)
-        brush6 = QBrush(QColor(0, 0, 0, 255))
-        brush6.setStyle(Qt.NoBrush)
-        palette3.setBrush(QPalette.Inactive, QPalette.Base, brush6)
-        palette3.setBrush(QPalette.Inactive, QPalette.Window, brush1)
+        palette3.setBrush(QPalette.Inactive, QPalette.Base, brush)
+        palette3.setBrush(QPalette.Inactive, QPalette.Window, brush)
 #if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
         palette3.setBrush(QPalette.Inactive, QPalette.PlaceholderText, brush)
 #endif
         palette3.setBrush(QPalette.Disabled, QPalette.WindowText, brush)
-        palette3.setBrush(QPalette.Disabled, QPalette.Button, brush1)
+        palette3.setBrush(QPalette.Disabled, QPalette.Button, brush)
         palette3.setBrush(QPalette.Disabled, QPalette.Text, brush)
         palette3.setBrush(QPalette.Disabled, QPalette.ButtonText, brush)
-        brush7 = QBrush(QColor(0, 0, 0, 255))
-        brush7.setStyle(Qt.NoBrush)
-        palette3.setBrush(QPalette.Disabled, QPalette.Base, brush7)
-        palette3.setBrush(QPalette.Disabled, QPalette.Window, brush1)
+        palette3.setBrush(QPalette.Disabled, QPalette.Base, brush)
+        palette3.setBrush(QPalette.Disabled, QPalette.Window, brush)
 #if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
         palette3.setBrush(QPalette.Disabled, QPalette.PlaceholderText, brush)
 #endif
         self.text_content.setPalette(palette3)
+        self.text_content.setStyleSheet(u"background-color: rgb(221, 221, 221);\n"
+"font: 10pt \"Segoe UI\";")
 
         self.verticalLayout_9.addWidget(self.text_content)
 
@@ -1321,7 +1317,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.stackedWidget.setCurrentIndex(1)
+        self.stackedWidget.setCurrentIndex(2)
 
 
         QMetaObject.connectSlotsByName(MainWindow)

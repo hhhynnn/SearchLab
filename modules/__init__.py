@@ -26,7 +26,8 @@ from .app_settings import Settings
 # IMPORT FUNCTIONS
 from .ui_functions import *
 
-# APP FUNCTIONS
-from .app_functions import *
-
 from .resources_rc import *
+
+from .search_functions import *
+
+from .entity import *

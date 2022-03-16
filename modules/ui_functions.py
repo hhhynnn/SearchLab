@@ -4,7 +4,9 @@ from main import *
 from PySide6.QtGui import *
 from PySide6.QtCore import *
 from PySide6.QtWidgets import *
+
 from modules.app_settings import *
+from modules.search_functions import *
 
 # GLOBALS
 # ///////////////////////////////////////////////////////////////
