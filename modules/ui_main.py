@@ -17,9 +17,9 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QPalette, QPixmap, QRadialGradient, QTransform)
 from PySide6.QtWidgets import (QAbstractItemView, QAbstractScrollArea, QApplication, QComboBox,
     QFrame, QGridLayout, QHBoxLayout, QHeaderView,
-    QLabel, QLineEdit, QMainWindow, QPushButton,
-    QSizePolicy, QStackedWidget, QTableWidget, QTableWidgetItem,
-    QTextBrowser, QVBoxLayout, QWidget)
+    QLabel, QLineEdit, QMainWindow, QPlainTextEdit,
+    QPushButton, QSizePolicy, QStackedWidget, QTableWidget,
+    QTableWidgetItem, QVBoxLayout, QWidget)
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -1150,7 +1150,7 @@ class Ui_MainWindow(object):
 #endif
         self.widget_result.setPalette(palette2)
         self.widget_result.setFont(font1)
-        self.widget_result.setStyleSheet(u"d")
+        self.widget_result.setStyleSheet(u"")
         self.verticalLayout_20 = QVBoxLayout(self.widget_result)
         self.verticalLayout_20.setObjectName(u"verticalLayout_20")
         self.frame_header = QFrame(self.widget_result)
@@ -1189,7 +1189,7 @@ class Ui_MainWindow(object):
 
         self.label_time = QLabel(self.widget_meta)
         self.label_time.setObjectName(u"label_time")
-        self.label_time.setStyleSheet(u"font: italic 10pt \"Segoe UI\";")
+        self.label_time.setStyleSheet(u"font: italic 12pt \"Segoe UI\";")
         self.label_time.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
 
         self.verticalLayout_5.addWidget(self.label_time)
@@ -1215,41 +1215,12 @@ class Ui_MainWindow(object):
         self.frame_content.setFrameShadow(QFrame.Raised)
         self.verticalLayout_9 = QVBoxLayout(self.frame_content)
         self.verticalLayout_9.setObjectName(u"verticalLayout_9")
-        self.text_content = QTextBrowser(self.frame_content)
-        self.text_content.setObjectName(u"text_content")
-        palette3 = QPalette()
-        palette3.setBrush(QPalette.Active, QPalette.WindowText, brush)
-        palette3.setBrush(QPalette.Active, QPalette.Button, brush)
-        palette3.setBrush(QPalette.Active, QPalette.Text, brush)
-        palette3.setBrush(QPalette.Active, QPalette.ButtonText, brush)
-        palette3.setBrush(QPalette.Active, QPalette.Base, brush)
-        palette3.setBrush(QPalette.Active, QPalette.Window, brush)
-#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
-        palette3.setBrush(QPalette.Active, QPalette.PlaceholderText, brush)
-#endif
-        palette3.setBrush(QPalette.Inactive, QPalette.WindowText, brush)
-        palette3.setBrush(QPalette.Inactive, QPalette.Button, brush)
-        palette3.setBrush(QPalette.Inactive, QPalette.Text, brush)
-        palette3.setBrush(QPalette.Inactive, QPalette.ButtonText, brush)
-        palette3.setBrush(QPalette.Inactive, QPalette.Base, brush)
-        palette3.setBrush(QPalette.Inactive, QPalette.Window, brush)
-#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
-        palette3.setBrush(QPalette.Inactive, QPalette.PlaceholderText, brush)
-#endif
-        palette3.setBrush(QPalette.Disabled, QPalette.WindowText, brush)
-        palette3.setBrush(QPalette.Disabled, QPalette.Button, brush)
-        palette3.setBrush(QPalette.Disabled, QPalette.Text, brush)
-        palette3.setBrush(QPalette.Disabled, QPalette.ButtonText, brush)
-        palette3.setBrush(QPalette.Disabled, QPalette.Base, brush)
-        palette3.setBrush(QPalette.Disabled, QPalette.Window, brush)
-#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
-        palette3.setBrush(QPalette.Disabled, QPalette.PlaceholderText, brush)
-#endif
-        self.text_content.setPalette(palette3)
-        self.text_content.setStyleSheet(u"background-color: rgb(221, 221, 221);\n"
-"font: 10pt \"Segoe UI\";")
+        self.plainText_content = QPlainTextEdit(self.frame_content)
+        self.plainText_content.setObjectName(u"plainText_content")
+        self.plainText_content.setStyleSheet(u"font: 700 12pt \"Segoe UI\";")
+        self.plainText_content.setReadOnly(True)
 
-        self.verticalLayout_9.addWidget(self.text_content)
+        self.verticalLayout_9.addWidget(self.plainText_content)
 
 
         self.verticalLayout_20.addWidget(self.frame_content)
@@ -1408,11 +1379,7 @@ class Ui_MainWindow(object):
         self.label_title.setText(QCoreApplication.translate("MainWindow", u"\u6587\u7ae0\u6807\u9898", None))
         self.label_url.setText(QCoreApplication.translate("MainWindow", u"\u539f\u6587\u94fe\u63a5", None))
         self.label_time.setText(QCoreApplication.translate("MainWindow", u"\u53d1\u5e03\u65f6\u95f4", None))
-        self.text_content.setHtml(QCoreApplication.translate("MainWindow", u"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><meta charset=\"utf-8\" /><style type=\"text/css\">\n"
-"p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:'Segoe UI'; font-size:10pt; font-weight:400; font-style:normal;\" bgcolor=\"#282c34\">\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">\u6b63\u6587\u5185\u5bb9</p></body></html>", None))
+        self.plainText_content.setPlainText(QCoreApplication.translate("MainWindow", u"\u6b63\u6587\u5185\u5bb9", None))
         self.creditsLabel.setText(QCoreApplication.translate("MainWindow", u"By: YWX.GBF.HYN", None))
         self.version.setText(QCoreApplication.translate("MainWindow", u"v1.0.0", None))
     # retranslateUi

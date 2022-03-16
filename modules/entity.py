@@ -61,8 +61,19 @@ class News:
 class NewsResult:
     """展示页需要展示的内容"""
 
-    def __init__(self, title='文章标题', rtime='发布时间', cor='相似度', snippet='文章片段'):
-        self.title = title
-        self.rtime = rtime
-        self.cor = cor
+    def __init__(self, origin: News, cor=0, keyPos=0):
+        self.origin = origin
+        self.title = origin.title
+        self.rtime = origin.rtime
+        self.cor = f"{cor:.3f}"
+        content = self.origin.content
+        begin = max(0, keyPos - 20)
+        snippet = f"{'...' if begin else ''}{content[begin:]}"
         self.snippet = snippet
+
+        self.count = 0  # 关键词个数
+        self.freq = 0  # 关键词出现次数
+        self.rank = 0  # TF-IDF 权重和
+        self.occurrence = list()  # 关键词出现位置
+        self.score = 0
+        self.num = origin.num

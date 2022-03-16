@@ -59,6 +59,11 @@ class MainWindow(QMainWindow):
         self.setWindowTitle(title)
         widgets.titleRightInfo.setText(description)
 
+        # TableWidgets 列宽
+        self.ui.tableWidget.setColumnWidth(0, 300)
+        self.ui.tableWidget.setColumnWidth(1, 120)
+        self.ui.tableWidget.setColumnWidth(2, 80)
+
         # TOGGLE MENU
         # ///////////////////////////////////////////////////////////////
         widgets.toggleButton.clicked.connect(lambda: UIFunctions.toggleMenu(self, True))
@@ -109,6 +114,7 @@ class MainWindow(QMainWindow):
             widgets.stackedWidget.setCurrentWidget(widgets.home)
             UIFunctions.resetStyle(self, btnName)
             btn.setStyleSheet(UIFunctions.selectMenu(btn.styleSheet()))
+            print('click btn_home!')
 
         # SHOW WIDGETS PAGE
         if btnName == "btn_widgets":
