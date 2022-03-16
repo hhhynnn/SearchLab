@@ -1,5 +1,0 @@
-pip install pyside2 -i https://pypi.douban.com/simple/
-pip install -U scikit-learn
-pip install requests
-pip install lxml
-pip install pysocks
