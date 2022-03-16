@@ -22,6 +22,8 @@ import platform
 # ///////////////////////////////////////////////////////////////
 from modules import *
 from widgets import *
+from modules.ui_functions import *
+from modules.app_settings import *
 
 os.environ["QT_FONT_DPI"] = "96"  # FIX Problem for High DPI and Scale above 100%
 
@@ -36,6 +38,7 @@ class MainWindow(QMainWindow):
 
         # SET AS GLOBAL WIDGETS
         # ///////////////////////////////////////////////////////////////
+        self.dragPos = None
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
         global widgets
@@ -43,12 +46,15 @@ class MainWindow(QMainWindow):
 
         # USE CUSTOM TITLE BAR | USE AS "False" FOR MAC OR LINUX
         # ///////////////////////////////////////////////////////////////
+        # 是否启用自定义边框
         Settings.ENABLE_CUSTOM_TITLE_BAR = True
+        # 是否启用table_widget自适应缩放
+        Settings.TABLEWIDGET_RESIZE_STRETCH = False
 
         # APP NAME
         # ///////////////////////////////////////////////////////////////
-        title = "PyDracula - Modern GUI"
-        description = "PyDracula APP - Theme with colors based on Dracula for Python."
+        title = "Search Engine"
+        description = "Search Engine - Created for information retrieval lab"
         # APPLY TEXTS
         self.setWindowTitle(title)
         widgets.titleRightInfo.setText(description)
@@ -59,11 +65,13 @@ class MainWindow(QMainWindow):
 
         # SET UI DEFINITIONS
         # ///////////////////////////////////////////////////////////////
+        # 根据 'ENABLE_CUSTOM_TITLE_BAR' 值对边框进行处理
         UIFunctions.uiDefinitions(self)
 
         # QTableWidget PARAMETERS
         # ///////////////////////////////////////////////////////////////
-        widgets.tableWidget.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
+        if Settings.TABLEWIDGET_RESIZE_STRETCH:
+            widgets.tableWidget.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
 
         # BUTTONS CLICK
         # ///////////////////////////////////////////////////////////////
@@ -73,33 +81,13 @@ class MainWindow(QMainWindow):
         widgets.btn_widgets.clicked.connect(self.buttonClick)
         widgets.btn_new.clicked.connect(self.buttonClick)
 
-        # EXTRA LEFT BOX
-        def openCloseLeftBox():
-            UIFunctions.toggleLeftBox(self, True)
-
-        # EXTRA RIGHT BOX
-        def openCloseRightBox():
-            UIFunctions.toggleRightBox(self, True)
-
         # SHOW APP
         # ///////////////////////////////////////////////////////////////
         self.show()
 
-        # SET CUSTOM THEME
-        # ///////////////////////////////////////////////////////////////
-        useCustomTheme = False
-        themeFile = "themes\py_dracula_light.qss"
-
-        # SET THEME AND HACKS
-        if useCustomTheme:
-            # LOAD AND APPLY STYLE
-            UIFunctions.theme(self, themeFile, True)
-
-            # SET HACKS
-            AppFunctions.setThemeHack(self)
-
         # SET HOME PAGE AND SELECT MENU
         # ///////////////////////////////////////////////////////////////
+        # 设置首先显示 home 页
         widgets.stackedWidget.setCurrentWidget(widgets.home)
         widgets.btn_home.setStyleSheet(UIFunctions.selectMenu(widgets.btn_home.styleSheet()))
 
@@ -145,7 +133,8 @@ class MainWindow(QMainWindow):
     # ///////////////////////////////////////////////////////////////
     def mousePressEvent(self, event):
         # SET DRAG POS WINDOW
-        self.dragPos = event.globalPos()
+        # self.dragPos = event.globalPos()
+        self.dragPos = event.globalPosition().toPoint()
 
         # PRINT MOUSE EVENTS
         if event.buttons() == Qt.LeftButton:
@@ -158,4 +147,4 @@ if __name__ == "__main__":
     app = QApplication(sys.argv)
     app.setWindowIcon(QIcon("icon.ico"))
     window = MainWindow()
-    sys.exit(app.exec_())
+    app.exec()

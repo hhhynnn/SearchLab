@@ -2,6 +2,7 @@ class Settings():
     # APP SETTINGS
     # ///////////////////////////////////////////////////////////////
     ENABLE_CUSTOM_TITLE_BAR = True
+    TABLEWIDGET_RESIZE_STRETCH = True
     MENU_WIDTH = 240
     LEFT_BOX_WIDTH = 240
     RIGHT_BOX_WIDTH = 240
